@@ -19,4 +19,8 @@ module.exports = {
       return `<span for="img" aria-label="gear">⚙️</span>`;
     }
   },
+  idMatch: (idOne, idTwo) => {
+    console.log("test", idOne, idTwo);
+    return idOne === idTwo;
+  },
 };
