@@ -1,0 +1,56 @@
+<div class="row d-flex">
+  <div class="d-flex justify-content-center">
+    <h2>{{title}}</h2>
+  </div>
+  <div class="d-flex justify-content-center">
+    <p>{{text}}</p>
+  </div>
+  <div class="d-flex justify-content-center">
+    <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Add A Comment</h3>
+
+    <form class="form new-comment-form">
+      <div class="form-group">
+        <label for="comment-desc">Description:</label>
+        <textarea
+          class="form-input"
+          id="comment-desc"
+          name="comment-desc"
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-md-6 post-list">
+    <h3>Current Comments:</h3>
+
+    {{#each Comments as |comment|}}
+      <div class="row mb-2">
+        <div class="col-md-8">
+          <h4><p>{{comment.text}}</p></h4>
+        </div>
+        {{#if (idMatch comment.user_id currentUser)}}
+          <div class="col-md-4">
+            <button
+              class="btn btn-sm btn-danger"
+              data-id="{{comment.id}}"
+            >DELETE</button>
+          </div>
+        {{/if}}
+      </div>
+
+    {{/each}}
+  </div>
+
+</div>
+
+<script src="/js/comment.js"></script>
+<script src="/js/profile.js"></script>
