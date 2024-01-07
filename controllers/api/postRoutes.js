@@ -16,12 +16,6 @@ router.post("/", withAuth, async (req, res) => {
 });
 
 router.post("/:id", withAuth, async (req, res) => {
-  console.log(
-    "req.params",
-    req.params.id,
-    "\nreq.session",
-    req.session.user_id
-  );
   try {
     const commentData = await Comment.create({
       ...req.body,
@@ -31,7 +25,6 @@ router.post("/:id", withAuth, async (req, res) => {
 
     res.status(200).json(commentData);
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });

@@ -20,7 +20,6 @@ module.exports = {
     }
   },
   idMatch: (idOne, idTwo) => {
-    console.log("test", idOne, idTwo);
     return idOne === idTwo;
   },
 };

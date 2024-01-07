@@ -5,7 +5,6 @@ let sequelize;
 
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
-  console.log("jaws", sequelize);
 } else {
   sequelize = new Sequelize(
     process.env.DB_NAME,
@@ -17,7 +16,6 @@ if (process.env.JAWSDB_URL) {
       port: 3306,
     }
   );
-  console.log("local", sequelize);
 }
 
 module.exports = sequelize;
